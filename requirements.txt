@@ -1,4 +1,4 @@
-"Flask==2.3.3" > requirements.txt
-"python-dotenv==1.0.0" >> requirements.txt
-"requests==2.31.0" >> requirements.txt
-"openai==1.84.0" >> requirements.txt
+Flask==2.3.3
+python-dotenv==1.0.0
+requests==2.31.0
+openai==1.84.0
