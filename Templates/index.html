@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Airport Radio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.5/awesomplete.min.css" />
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            font-size: 20px;
+            font-family: math;
+            text-rendering: optimizeLegibility;
+            background-color: hsl(197, 100%, 94%);
+        }
+
+        .content {
+            max-width: 640px;
+            margin: auto;
+        }
+
+        .header {
+            padding: 3em 0;
+        }
+
+        a {
+            color: #f05349;
+        }
+
+        .footer {
+            background: #f4f4f4;
+            text-align: center;
+            font-size: 0.8em;
+            margin-top: 4em;
+            padding: 4em 0;
+        }
+
+        .with-image-bg-bottom {
+            position: relative;
+            background-size: cover;
+            margin-bottom: 2em;
+
+            /* Center everything inside */
+            min-height: 70svh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            /* White text with a shadow */
+            color: white;
+            text-shadow: 0px 0px 30px black,
+                0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .with-image-bg-bottom {
+            min-height: 30svh;
+            margin-bottom: 0;
+        }
+
+        .footer_image_text {
+            position: absolute;
+            font-family: Tahoma, Georgia, serif;
+            top: 1em;
+            right: 1em;
+            color: #ffffff;
+            text-shadow: 0px 0px 30px black,
+                0px 0px 10px rgba(0, 0, 0, 0.5);
+            font-size: 0.8em;
+            margin: 0;
+        }
+
+        .flight-result-box {
+            border: 2px solid #2a7ae2;
+            background-color: #ffffff;
+            padding: 1.5em;
+            margin-top: 2em;
+            margin-bottom: 1.5em;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        figure {
+            margin: 0;
+            padding-bottom: 1.2em;
+        }
+
+        figcaption {
+            font-size: 0.8em;
+            text-align: left;
+            margin-top: 0.5em;
+            color: #666;
+            padding-left: 0.2em;
+        }
+
+        h1 {
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            font-size: 3em;
+            line-height: 1.1;
+        }
+
+        .subhead {
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+        }
+
+        .byline {
+            font-size: 0.7em;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+        }
+
+        iframe,
+        img,
+        video {
+            max-width: 100%;
+        }
+
+        p {
+            line-height: 1.6;
+            margin: 0;
+            padding-bottom: 1.2em;
+        }
+
+        ul {
+            margin: 0;
+            padding-bottom: 1em;
+            line-height: 1.6;
+        }
+
+        iframe {
+            padding-bottom: 0em;
+        }
+
+        code {
+            font-family: 'Courier New', monospace;
+            background: #fffbaf;
+            font-size: 0.85em;
+        }
+
+        .full-width figure {
+            text-align: center;
+        }
+
+        /* margin on mobile */
+        @media (max-width: 640px) {
+            body {
+                font-size: 18px;
+            }
+
+            .content {
+                padding-left: 0.5em;
+                padding-right: 0.5em;
+            }
+        }
+
+            .awesomplete {
+                width: auto !important;
+                min-width: 100%;
+                max-width: none;
+            }
+
+            .awesomplete ul {
+                white-space: nowrap;
+                overflow-x: auto;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="header">
+            <h1>Around the world in songs</h1>
+            <p class="subhead">Somewhere, right now, a flight just took off. Somewhere else, someone’s hitting replay on the number-one song.
+            Find out what they’re listening to, one departure at a time.</p>
+        </div>
+    </div>
+
+    <div class="content">
+        <figure>
+            <img src="{{ url_for('static', filename='takeoff_frankfurt.jpg') }}" alt="Plane taking off in Frankfurt, Germany">
+            <figcaption>A Lufthansa B-747 is taking off in Frankfurt. Where might it fly to? <i>Photo: Imago</i></figcaption>
+        </figure>
+    </div>
+
+    <div class="content">
+        <div class="byline">
+            <p>by Florine Schönmann</p>
+        </div>
+        
+    <p>Have you ever wondered where a plane was heading as you watched it climb through the clouds?</p><p>
+    A plane can spark the imagination. In just a few hours, you can circle the globe and arrive in a completely different place: palm-lined beaches, remote mountain ranges, bustling cities.
+    You meet new people, discover new cultures, make friends, celebrate.</p>
+    <p>Humans have always traveled, but never as much as today. The rhythm of takeoffs and landings is increasing at airports around the world.
+    Each flight carries dreams, the hopes and expectations of the people on board.
+    What might be waiting for them at their destination?</p>
+    <p>And while most of us stay grounded, watching planes disappear into the sky, there's still a way to travel – at least with your ears.
+    Type in an airport below and follow recent flights and discover the top songs in the countries they're headed to.
+    A kind of global listening tour, a glance at the world's top music, one takeoff at a time.</p>
+    
+        <div id="search-anchor" style="position: relative; top: -40px;"></div>
+
+        <form action="/#search-anchor" method="get" id="airport-form">
+            <input id="airport-input" name="airport" placeholder="Type airport name or code" style="width: 90%; padding: 0.4em;" autocomplete="on" value="{{ request.args.get('airport', '') }}" />
+            <button type="submit" id="search-btn" disabled>Search most recent flights</button>
+        </form>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.5/awesomplete.min.js"></script>
+        <script>
+            var input = document.getElementById("airport-input");
+            var airports_list = JSON.parse('{{ airports_list | tojson}}');
+            const btn = document.getElementById("search-btn");
+            console.log(airports_list);
+
+            input.addEventListener("input", () => {
+                btn.disabled = !input.value.trim();
+            });
+            new Awesomplete(input, {
+                list: airports_list,
+                minChars: 1,
+                maxItems: 20,
+                autoFirst: true,
+                filter: function (text, input) {
+                    return Awesomplete.FILTER_CONTAINS(text.toLowerCase(), input.toLowerCase());
+                }
+            });
+
+            input.addEventListener("awesomplete-selectcomplete", function () {
+                document.getElementById("airport-form").submit();
+            });
+    
+        </script>
+    
+        <br />
+        
+    {% if error %}
+
+        <p style="color:rgb(255, 30, 30);">{{ error }}</p>
+
+    {% endif %}
+
+    {% if flight_output %}
+        <div class="flight-result-box">
+            {% for flight in flight_output %}
+
+                {% if flight.message %}
+                    <em>{{ flight.message }}</em><br />
+                {% endif %}
+                {% if flight.flight %}
+                    {% if flight.spotify_embed_url %}
+                        <p>Just departed from <b>{{ flight.departure }}</b>: {{ flight.flight }} to {{ flight.destination }}. Listen to the currently most popular song for <b>{{ flight.country_name }}</b>:</p>
+                        <!--<strong>Destination:</strong> {{ flight.destination }}<br />
+                        <strong>Flight:</strong> {{ flight.flight }}<br /><br />
+                        Departed from {{ flight.departure }}<br />-->
+                        
+                        <!--<strong>Song:</strong> {{ flight.song }}<br />
+                        <strong>Artist:</strong> {{ flight.artist }}<br />-->
+
+                        <iframe style="border-radius:12px" 
+                                src="{{ flight.spotify_embed_url }}" 
+                                width="100%" 
+                                height="180" 
+                                frameborder="0" 
+                                allowtransparency="true" 
+                                allow="encrypted-media">
+                        </iframe>
+        </div>
+                        <div class="content">
+                            <p>While the plane climbs and passengers settle in, you can follow its departure from here.
+                                The map below shows where it just took off, marking the start of a journey.
+                                At the same time, you can listen to what’s playing at the destination: the top song in the country the flight is headed to.</p>
+                            <p>A brief moment to pause, to listen, to look outward for a change of perspective, or just for the sake of curiosity.</p>
+                            <div class="full-width">
+                                <iframe 
+                                    src="https://globe.adsbexchange.com/?icao={{ flight.tailnumber }}&zoom=10"
+                                    width="100%" 
+                                    style="height: 600px; border: none; display: block;" 
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                        </div>
+
+                    {% else %}
+                        <div class="flight-result-box">
+                            <p>Just departed from <b>{{ flight.departure }}</b>: {{ flight.flight }} to {{ flight.destination }}. There is no Spotify data for <b>{{ flight.country_name }}</b>.</p>
+                        </div>
+
+                        <p>While the plane climbs and passengers settle in, you can follow its departure from here.
+                            The map below shows where it just took off, marking the start of a journey.
+                            At the same time, you can listen to what’s playing at the destination: the top song in the country the flight is headed to.</p>
+                        <p>A brief moment to pause, to listen, to look outward for a change of perspective, or just for the sake of curiosity.</p>
+                        
+                            <iframe 
+                                src="https://globe.adsbexchange.com/?icao={{ flight.tailnumber }}&zoom=10"
+                                width="100%" 
+                                style="height: 600px; border: none; display: block;" 
+                                allowfullscreen>
+                            </iframe>
+                        <p> </p>
+
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+    {% endif %}
+
+    </div>
+    <p> </p>
+    <div class="header with-image-bg-bottom" style="background-image: url('{{ url_for('static', filename='takeoff_clouds.jpg') }}');">
+    <div class="footer_image_text">
+        <p><i>Photo: Imago</i></p>
+    </div>
+</body>
+
+</html>
