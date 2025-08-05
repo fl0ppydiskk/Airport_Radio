@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -89,6 +88,17 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
+        .awesomplete {
+            width: auto !important;
+            min-width: 100%;
+            max-width: none;
+        }
+
+        .awesomplete ul {
+            white-space: nowrap;
+            overflow-x: auto;
+        }
+
         figure {
             margin: 0;
             padding-bottom: 1.2em;
@@ -130,20 +140,8 @@
             padding-bottom: 1.2em;
         }
 
-        ul {
-            margin: 0;
-            padding-bottom: 1em;
-            line-height: 1.6;
-        }
-
         iframe {
             padding-bottom: 0em;
-        }
-
-        code {
-            font-family: 'Courier New', monospace;
-            background: #fffbaf;
-            font-size: 0.85em;
         }
 
         .full-width figure {
@@ -161,18 +159,6 @@
                 padding-right: 0.5em;
             }
         }
-
-            .awesomplete {
-                width: auto !important;
-                min-width: 100%;
-                max-width: none;
-            }
-
-            .awesomplete ul {
-                white-space: nowrap;
-                overflow-x: auto;
-        }
-
     </style>
 </head>
 
@@ -197,16 +183,16 @@
             <p>by Florine Schönmann</p>
         </div>
         
-    <p>Have you ever wondered where a plane was heading as you watched it climb through the clouds?</p><p>
-    A plane can spark the imagination. In just a few hours, you can circle the globe and arrive in a completely different place: palm-lined beaches, remote mountain ranges, bustling cities.
-    You meet new people, discover new cultures, make friends, celebrate.</p>
-    <p>Humans have always traveled, but never as much as today. The rhythm of takeoffs and landings is increasing at airports around the world.
-    Each flight carries dreams, the hopes and expectations of the people on board.
-    What might be waiting for them at their destination?</p>
-    <p>And while most of us stay grounded, watching planes disappear into the sky, there's still a way to travel – at least with your ears.
-    Type in an airport below and follow recent flights and discover the top songs in the countries they're headed to.
-    A kind of global listening tour, a glance at the world's top music, one takeoff at a time.</p>
-    
+        <p>Have you ever wondered where a plane was heading as you watched it climb through the clouds?</p><p>
+        A plane can spark the imagination. In just a few hours, you can circle the globe and arrive in a completely different place: palm-lined beaches, remote mountain ranges, bustling cities.
+        You meet new people, discover new cultures, make friends, celebrate.</p>
+        <p>Humans have always traveled, but never as much as today. The rhythm of takeoffs and landings is increasing at airports around the world.
+        Each flight carries dreams, the hopes and expectations of the people on board.
+        What might be waiting for them at their destination?</p>
+        <p>And while most of us stay grounded, watching planes disappear into the sky, there's still a way to travel – at least with your ears.
+        Type in an airport below and follow recent flights and discover the top songs in the countries they're headed to.
+        A kind of global listening tour, a glance at the world's top music, one takeoff at a time.</p>
+        
         <div id="search-anchor" style="position: relative; top: -40px;"></div>
 
         <form action="/#search-anchor" method="get" id="airport-form">
@@ -243,13 +229,12 @@
         <br />
         
     {% if error %}
-
-        <p style="color:rgb(255, 30, 30);">{{ error }}</p>
-
+        <div class="flight-result-box">
+            <p style="color:rgb(255, 30, 30);">{{ error }}</p>
+        </div>
     {% endif %}
 
     {% if flight_output %}
-        
             {% for flight in flight_output %}
 
                 {% if flight.message %}
@@ -257,6 +242,7 @@
                         <em>{{ flight.message }}</em><br />
                     </div>
                 {% endif %}
+
                 {% if flight.flight %}
                     {% if flight.spotify_embed_url %}
                         <div class="flight-result-box">
@@ -306,8 +292,9 @@
                                 style="height: 600px; border: none; display: block;" 
                                 allowfullscreen>
                             </iframe>
+                            <br>
                         </div>
-                        <br>
+                        
 
                     {% endif %}
                 {% endif %}
