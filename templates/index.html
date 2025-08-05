@@ -249,31 +249,34 @@
     {% endif %}
 
     {% if flight_output %}
-        <div class="flight-result-box">
+        
             {% for flight in flight_output %}
 
                 {% if flight.message %}
-                    <em>{{ flight.message }}</em><br />
+                    <div class="flight-result-box">
+                        <em>{{ flight.message }}</em><br />
+                    </div>
                 {% endif %}
                 {% if flight.flight %}
                     {% if flight.spotify_embed_url %}
-                        <p>Just departed from <b>{{ flight.departure }}</b>: {{ flight.flight }} to {{ flight.destination }}. Listen to the currently most popular song for <b>{{ flight.country_name }}</b>:</p>
-                        <!--<strong>Destination:</strong> {{ flight.destination }}<br />
-                        <strong>Flight:</strong> {{ flight.flight }}<br /><br />
-                        Departed from {{ flight.departure }}<br />-->
-                        
-                        <!--<strong>Song:</strong> {{ flight.song }}<br />
-                        <strong>Artist:</strong> {{ flight.artist }}<br />-->
+                        <div class="flight-result-box">
+                            <p>Just departed from <b>{{ flight.departure }}</b>: {{ flight.flight }} to {{ flight.destination }}. Listen to the currently most popular song for <b>{{ flight.country_name }}</b>:</p>
+                            <!--<strong>Destination:</strong> {{ flight.destination }}<br />
+                            <strong>Flight:</strong> {{ flight.flight }}<br /><br />
+                            Departed from {{ flight.departure }}<br />-->
+                            
+                            <!--<strong>Song:</strong> {{ flight.song }}<br />
+                            <strong>Artist:</strong> {{ flight.artist }}<br />-->
 
-                        <iframe style="border-radius:12px" 
-                                src="{{ flight.spotify_embed_url }}" 
-                                width="100%" 
-                                height="180" 
-                                frameborder="0" 
-                                allowtransparency="true" 
-                                allow="encrypted-media">
-                        </iframe>
-        </div>
+                            <iframe style="border-radius:12px" 
+                                    src="{{ flight.spotify_embed_url }}" 
+                                    width="100%" 
+                                    height="180" 
+                                    frameborder="0" 
+                                    allowtransparency="true" 
+                                    allow="encrypted-media">
+                            </iframe>
+                        </div>
                         <div class="content">
                             <p>While the plane climbs and passengers settle in, you can follow its departure from here.
                                 The map below shows where it just took off, marking the start of a journey.
@@ -290,20 +293,22 @@
                         </div>
 
                     {% else %}
+                        <div class="flight-result-box">
                             <p>Just departed from <b>{{ flight.departure }}</b>: {{ flight.flight }} to {{ flight.destination }}. There is no Spotify data for <b>{{ flight.country_name }}</b>.</p>
-
-                        <p>While the plane climbs and passengers settle in, you can follow its departure from here.
-                            The map below shows where it just took off, marking the start of a journey.
-                            At the same time, you can listen to what’s playing at the destination: the top song in the country the flight is headed to.</p>
-                        <p>A brief moment to pause, to listen, to look outward for a change of perspective, or just for the sake of curiosity.</p>
-                        
+                        </div>
+                        <div class="content">
+                            <p>While the plane climbs and passengers settle in, you can follow its departure from here.
+                                The map below shows where it just took off, marking the start of a journey.
+                                At the same time, you can listen to what’s playing at the destination: the top song in the country the flight is headed to.</p>
+                            <p>A brief moment to pause, to listen, to look outward for a change of perspective, or just for the sake of curiosity.</p>
                             <iframe 
                                 src="https://globe.adsbexchange.com/?icao={{ flight.tailnumber }}&zoom=10"
                                 width="100%" 
                                 style="height: 600px; border: none; display: block;" 
                                 allowfullscreen>
                             </iframe>
-                        <p> </p>
+                        </div>
+                        <br>
 
                     {% endif %}
                 {% endif %}
